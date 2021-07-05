@@ -1,0 +1,82 @@
+[user]
+	name = Loki Hopkins
+	email = loki.hopkins@gmail.com
+[pull]
+	rebase = true
+[color]
+ui = true
+diff = auto
+status = auto
+branch = auto
+
+[init]
+defaultBranch = main
+
+[core]
+## gitignore official templates: https://github.com/github/gitignore
+excludesfile = $XDG_CONFIG_HOME/git/gitignore
+	editor = nano
+
+[difftool]
+prompt = false
+
+[mergetool]
+prompt = false
+
+[pull]
+ff = only
+
+[alias]
+reb = rebase -i --autosquash
+rid = rebase -i develop --autosquash
+rim = rebase -i main --autosquash
+rc = rebase --continue
+tabularasa = !sleep 2 && git reset --hard HEAD
+destroy = !sleep 5 && git reset --hard HEAD~
+lol = log --graph --decorate --pretty=oneline --abbrev-commit
+lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+logg = log --oneline --graph --decorate
+s = status -s
+stat = status
+br = branch
+call = commit -a
+ci = commit --interactive
+cam = commit --amend -a
+cami = commit --amend --interactive
+fixgp = commit -a --fixup HEAD~
+co = checkout
+pdiff = diff HEAD~
+wdiff = diff --color-words
+undo-commit = reset --soft HEAD^
+; ca = !git add -A && git commit
+; wip = !git add -A && git commit -m "WIP"
+; ap = !git add -A && git commit --amend --no-edit
+issue = !PAGER= gh issue
+pr = !PAGER= gh pr
+alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+clean-branches = !git branch | grep -v -E 'master|main' | xargs git branch -D
+cb = "!f() { git switch -c \"$@\" && git push -u origin HEAD; }; f"
+fix-self = "!f() { git rebase -i HEAD~\"$1\"; }; f"
+command = git-nbdiffdriver diff
+ido = "!f() { git status && git add -i && echo "Enter commit message" && read gitmsg && git commit -m \"$gitmsg\" && git push; }; f"
+fix-head = "!f() { git stash && git rebase && git stash pop }; f " 
+update-main = !git switch main && git pull && git switch -
+
+[merge "jupyternotebook"]
+driver = git-nbmergedriver merge %O %A %B %L %P
+name = jupyter notebook merge driver
+[difftool "nbdime"]
+cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+[mergetool "nbdime"]
+cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+
+[filter "nbstrip_full"]
+clean = "jq --indent 1 \
+    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+    | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+    | .cells[].metadata = {} \
+    '"
+smudge = cat
+required = true

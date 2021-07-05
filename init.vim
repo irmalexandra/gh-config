@@ -1,1 +1,0 @@
-/home/alexander/.config/nvim/init.vim

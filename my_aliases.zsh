@@ -1,1 +1,0 @@
-/home/alexander/.oh-my-zsh/custom/my_aliases.zsh

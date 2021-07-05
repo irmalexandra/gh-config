@@ -1,1 +1,0 @@
-/home/alexander/.oh-my-zsh/oh-my-zsh.sh

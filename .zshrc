@@ -80,12 +80,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
             git
             zsh-autosuggestions
+            virtualenv
         )   
 
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

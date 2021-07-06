@@ -1,6 +1,6 @@
 *
 !.gitignore
-!.config/nvim
+!.config/nvim/init.vim
 !.gitconfig
 !.zshrc
 !.oh-my-zsh/custom/my_aliases.zsh

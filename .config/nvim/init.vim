@@ -12,6 +12,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
+
 call plug#begin('~/.vim/autoload')
 
 Plug 'morhetz/gruvbox'

@@ -5,3 +5,4 @@
 !.zshrc
 !.oh-my-zsh/custom/my_aliases.zsh
 !.oh-my.zsh/custom/project_shortcuts.zsh
+!gh-config-cronGit.py

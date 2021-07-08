@@ -12,6 +12,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
+let g:mapleader = ' '
 
 call plug#begin('~/.vim/autoload')
 
@@ -35,6 +36,8 @@ if (has("termguicolors"))
 endif
 
     lua require 'colorizer'.setup()
+" InstantMarkdown"
+let g:instant_markdown_autostart = 0
 
 " NERDCommenter
 nmap <C-\> <Plug>NERDCommenterToggle
@@ -43,5 +46,11 @@ vmap <C-\> <Plug>NERDCommenterToggle<CR>gv
 " NERDTree
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
-vmap <F2> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
 
+" Tabs
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemode=':t'
+nmap <leader>1 <Plug>AirlineSelectPrevTab
+nmap <leader>2 <Plug>AirlineSelectNextTab
+nmap <C-w> :bd<CR>

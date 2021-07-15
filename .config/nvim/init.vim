@@ -37,11 +37,13 @@ endif
 
     lua require 'colorizer'.setup()
 " InstantMarkdown"
-let g:instant_markdown_autostart = 0
+let g:instant_markdown_autostart = 1
+nmap <C-m> <Plug>InstantMarkdownPreview
+vmap <C-m> <Plug>InstantMarkdownPreview<CR>gv
 
 " NERDCommenter
-nmap <C-\> <Plug>NERDCommenterToggle
-vmap <C-\> <Plug>NERDCommenterToggle<CR>gv
+nmap <C-z> <Plug>NERDCommenterToggle
+vmap <C-z> <Plug>NERDCommenterToggle<CR>gv
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
@@ -53,4 +55,4 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemode=':t'
 nmap <leader>1 <Plug>AirlineSelectPrevTab
 nmap <leader>2 <Plug>AirlineSelectNextTab
-nmap <C-w> :bd<CR>
+nmap <C-q> :bd<CR>

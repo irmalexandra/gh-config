@@ -62,6 +62,7 @@ command = git-nbdiffdriver diff
 ido = "!f() { git status && git add -i && echo "Enter commit message" && read gitmsg && git commit -m \"$gitmsg\" && git push; }; f"
 fix-head = "!f() { git stash && git rebase && git stash pop }; f " 
 update-main = !git switch main && git pull && git switch -
+fix-last = "!function() { git add . && COMMIT=$(git rev-parse HEAD~0) && git commit --fixup=$COMMIT && git rebase -i --autosquash $COMMIT~1; }; function"
 
 [merge "jupyternotebook"]
 driver = git-nbmergedriver merge %O %A %B %L %P

@@ -86,7 +86,7 @@ plugins=(
 
 
 source $ZSH/oh-my-zsh.sh
-
+export PATH=$PATH:~/.local/bin
 # User configuration
 POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 

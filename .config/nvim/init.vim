@@ -28,6 +28,8 @@ Plug 'suan/vim-instant-markdown'
 
 call plug#end()
 
+let g:python3_host_prog = '/usr/lib/python3.9'
+
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 

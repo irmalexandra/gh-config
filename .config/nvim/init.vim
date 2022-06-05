@@ -1,4 +1,7 @@
-set encoding=utf-8
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+"source ~/.vimrcet encoding=utf-8
+
 set fileformat=unix
 set number relativenumber
 syntax enable
@@ -38,7 +41,7 @@ endif
 
     lua require 'colorizer'.setup()
 " InstantMarkdown"
-let g:instant_markdown_autostart = 1
+let g:instan_markdown_autostart = 1
 nmap <C-m> <Plug>InstantMarkdownPreview
 vmap <C-m> <Plug>InstantMarkdownPreview<CR>gv
 

@@ -9,7 +9,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/alexandra/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -109,14 +109,15 @@ POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/alexandra/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/$USER/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> 
+/dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/alexandra/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/alexandra/miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/Users/$USER/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/$USER/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/alexandra/miniforge3/bin:$PATH"
+        export PATH="/Users/$USER/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup

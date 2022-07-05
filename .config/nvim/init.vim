@@ -39,7 +39,7 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-    lua require 'colorizer'.setup()
+lua require 'colorizer'.setup()
 " InstantMarkdown"
 let g:instan_markdown_autostart = 1
 nmap <C-m> <Plug>InstantMarkdownPreview

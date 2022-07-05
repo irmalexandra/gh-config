@@ -1,6 +1,6 @@
 [user]
 	name = Irma Hopkins
-	email = irmaahopkins@gmail.com
+	email = irma@sidekickhealth.com
 [pull]
 	rebase = true
 [color]
@@ -39,7 +39,10 @@ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen
 logg = log --oneline --graph --decorate
 s = status -s
 stat = status
+sw = switch
+rembrlist = for-each-ref --format=' %(authorname) %09 %(refname)' --sort=authorname | grep origin
 br = branch
+delbr = "!f() { echo "Enter branch name: " && read brname && git push -d origin \"$brname\" && git branch -d \"$brname\"; }; f" 
 call = commit -a
 ci = commit --interactive
 cam = commit --amend -a

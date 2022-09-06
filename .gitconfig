@@ -42,7 +42,7 @@ stat = status
 sw = switch
 rembrlist = for-each-ref --format=' %(authorname) %09 %(refname)' --sort=authorname | grep origin
 br = branch
-delbr = "!f() { echo "Enter branch name: " && read brname && git push -d origin \"$brname\" && git branch -d \"$brname\"; }; f" 
+delbr = "!f() { git push -d origin \"$1\" && git branch -D \"$1\"; }; f" 
 call = commit -a
 ci = commit --interactive
 cam = commit --amend -a
